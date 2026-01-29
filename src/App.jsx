@@ -1,17 +1,26 @@
-import { useState } from "react";
-import Navbar from './Components/Navbar';
+ 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Body from "./Components/Body";
+import Profile from "./Components/Profile";
+import Login from "./Components/Login";
 
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  
   return (
     <>
-      <Navbar/>
-      <h1 className="text-4xl font-bold text-red-600">
-        Hello World
-      </h1>
+      <BrowserRouter basename="/">
+        <Routes>
+          <Route path='/' element={<Body/>} >
+            <Route path='/login' element={<Login/>} />
+            <Route path='/profile' element={<Profile/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
+
+      
     </>
   );
 }
